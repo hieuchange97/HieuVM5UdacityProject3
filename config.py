@@ -12,10 +12,10 @@ class BaseConfig:
     DB_URL = 'postgresql://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER,pw=POSTGRES_PW,url=POSTGRES_URL,db=POSTGRES_DB)
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI') or DB_URL
     CONFERENCE_ID = 1
-    SECRET_KEY = ''
-    SERVICE_BUS_CONNECTION_STRING =''
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SERVICE_BUS_CONNECTION_STRING = os.getenv('SERVICE_BUS_CONNECTION_STRING')
     ADMIN_EMAIL_ADDRESS = "minhhieuvu9497@gmail.com"
-    SENDGRID_API_KEY = ""
+    SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
