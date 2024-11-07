@@ -68,7 +68,7 @@ def notification():
             db.session.commit()
 
             # Call service bus queue_client to send notification id to queue for function app can catch and send email
-            queue_client.send(Message('{}'.format(notification)))
+            queue_client.send(Message('{}'.format(notification.id)))
 
             return redirect('/Notifications')
         except :
